@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WHO AM I | CyberChat Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="hacker-theme">
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scanline"></div>
+
+    <div id="app-container">
+        <section id="auth-screen" class="screen active-screen">
+            <div class="glitch-logo" data-text="WHO AM I">WHO AM I</div>
+            <button id="login-btn" class="cyber-btn">ACCESS VIA GOOGLE</button>
+        </section>
+
+        <section id="setup-screen" class="screen">
+            <div class="glass-panel setup-box">
+                <h3>INITIALIZE_IDENTITY</h3>
+                <input type="text" id="custom-id" placeholder="Unique Secret ID..." class="terminal-input">
+                <input type="text" id="display-name" placeholder="Display Name" class="terminal-input">
+                <button id="save-profile" class="cyber-btn">JOIN GRID</button>
+            </div>
+        </section>
+
+        <section id="contact-page" class="screen">
+            <header class="page-header">
+                <div class="glitch-logo-mini">WHO AM I</div>
+                <input type="text" id="user-search" placeholder="Search ID & Enter..." class="terminal-input">
+                <div id="search-result-overlay" class="hidden glass-panel">
+                    <div id="found-user-info"></div>
+                    <div class="search-btns">
+                        <button id="add-contact-btn" class="cyber-btn">ADD</button>
+                        <button id="close-search" class="cyber-btn">X</button>
+                    </div>
+                </div>
+            </header>
+            <div id="contact-list" class="custom-scrollbar"></div>
+        </section>
+
+        <section id="chat-page" class="screen">
+            <header id="chat-header">
+                <button id="back-to-contacts" class="cyber-btn"><</button>
+                <div class="target-info"><span id="target-name">...</span></div>
+                <div class="call-btns">
+                    <button id="trigger-call" class="cyber-btn">🎥</button>
+                </div>
+            </header>
+            
+            <div id="message-flow" class="custom-scrollbar"></div>
+
+            <div id="call-overlay" class="hidden">
+                <video id="remote-video" autoplay playsinline></video>
+                <video id="local-video" autoplay playsinline muted></video>
+                <button id="hangup-btn" class="cyber-btn">END CALL</button>
+            </div>
+
+            <div id="incoming-call-box" class="hidden glass-panel">
+                <p>INCOMING CALL...</p>
+                <button id="accept-btn" class="cyber-btn">ACCEPT</button>
+                <button id="reject-btn" class="cyber-btn" style="color:red">REJECT</button>
+            </div>
+
+            <div class="chat-controls">
+                <div id="emoji-picker" class="hidden glass-panel">
+                    <span class="emoji-item">🔥</span><span class="emoji-item">💀</span>
+                    <span class="emoji-item">⚡</span><span class="emoji-item">🤖</span>
+                    <span class="emoji-item">💻</span><span class="emoji-item">🕶️</span>
+                    <span class="emoji-item">🦾</span><span class="emoji-item">👽</span>
+                    <span class="emoji-item">🔋</span><span class="emoji-item">🧪</span>
+                    <span class="emoji-item">🚀</span><span class="emoji-item">🎯</span>
+                </div>
+                <button id="emoji-btn" class="cyber-btn" type="button">😊</button>
+                <label for="file-input" class="cyber-btn">📎</label>
+                <input type="file" id="file-input" hidden accept="image/*">
+                <input type="text" id="msg-input" placeholder="Message..." autocomplete="off">
+                <button id="send-btn" class="cyber-btn">SEND</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
